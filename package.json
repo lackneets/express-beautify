@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/lackneets/express-beautify/issues"
   },
-  "homepage": "https://github.com/lackneets/express-beautify"
+  "homepage": "https://github.com/lackneets/express-beautify",
+  "dependencies": {
+    "js-beautify": "^1.5.4"
+  }
 }
