@@ -1,6 +1,6 @@
 {
   "name": "express-beautify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "HTML output beautify filter for express",
   "main": "index.js",
   "scripts": {
