@@ -1,7 +1,7 @@
 {
   "name": "express-beautify",
-  "version": "0.1.1",
-  "description": "HTML output beautify filter for express",
+  "version": "0.1.2",
+  "description": "HTML output beautify/minify filter for express",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,13 +18,22 @@
     "filter",
     "render"
   ],
-  "author": "Lackneets",
-  "license": "ISC",
+  "author": {
+    "name": "Lackneets"
+  },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/lackneets/express-beautify/issues"
   },
   "homepage": "https://github.com/lackneets/express-beautify",
   "dependencies": {
+    "html-minifier": "^0.6.9",
     "js-beautify": "^1.5.4"
-  }
+  },
+  "gitHead": "4f7ee5843c821075b02d65fd8272592f46a17f15",
+  "readme": "# express-beautify\n\nThis tool make express output HTML, JS, CSS human-readable, rendered by any template engine.\n\n##Usage\n\n####  Install\n\n````js\nnpm install express-beautify\n````\n####  Setup\n````js\nvar express = require('express');\nvar engines = require('consolidate'); // Here use consolidate + Swig foe example\nvar expressBeautify = require('express-beautify')(/*Options*/);\n\nvar app = express();\n\n    app.engine('html', engines.swig); // render html file using swig\n    app.engine('js', engines.swig); // render js file using swig\n    app.engine('css', engines.swig); // render css file using swig\n    app.set('view engine', 'html');\n    \n    app.use(expressBeautify); // express-beautify filter\n    \n````\n####  Examples \n\n````js\n    // Render something\n    app.get('/', function(req, res, next){\n    \tres.render('index');\n    });\n    \n    app.get('/renderJs', function(req, res, next){\n    \tres.render('index.js');\n    });\n    \n    app.get('/renderCss', function(req, res, next){\n    \tres.render('index.css');\n    });\n    \n    // Send something\n    \n    app.get('/sendHTML', function(req, res, next){\n    \tres.sendHTML('<div>Hello <span>World</span></div>');\n    });\n    \n    app.get('/sendJS', function(req, res, next){\n    \tres.sendJS(\"(function(){alert('Hola!');})()\");\n    });\n    \n    app.get('/sendCSS', function(req, res, next){\n    \tres.sendCSS(\"body{display:'none'}\");\n    });\n    \n\tapp.listen(8080);\n    \n````\n\n## Options\n See [js-beautify](https://www.npmjs.com/package/js-beautify)\n````json\n{\n    \"indent_size\": 2,\n    \"indent_char\": \" \",\n    \"indent_level\": 0,\n    \"indent_with_tabs\": false,\n    \"preserve_newlines\": true,\n    \"max_preserve_newlines\": 1,\n    \"jslint_happy\": false,\n    \"space_after_anon_function\": false,\n    \"brace_style\": \"collapse\",\n    \"keep_array_indentation\": false,\n    \"keep_function_indentation\": false,\n    \"space_before_conditional\": true,\n    \"break_chained_methods\": false,\n    \"eval_code\": false,\n    \"unescape_strings\": false,\n    \"wrap_line_length\": 0\n}\n````",
+  "readmeFilename": "README.md",
+  "_id": "express-beautify@0.1.1",
+  "_shasum": "fb56704bee938fd3d84a79a3b73f70353887d74f",
+  "_from": "express-beautify@^0.1.1"
 }

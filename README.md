@@ -2,6 +2,9 @@
 
 This tool make express output HTML, JS, CSS human-readable, rendered by any template engine.
 
+**Yes, minify also supported!**
+You can beautify youe code at **development**, minify it at **production**.
+
 ##Usage
 
 ####  Install
@@ -30,36 +33,36 @@ var app = express();
 ````js
     // Render something
     app.get('/', function(req, res, next){
-    	res.render('index');
+        res.render('index');
     });
     
     app.get('/renderJs', function(req, res, next){
-    	res.render('index.js');
+        res.render('index.js');
     });
     
     app.get('/renderCss', function(req, res, next){
-    	res.render('index.css');
+        res.render('index.css');
     });
     
     // Send something
     
     app.get('/sendHTML', function(req, res, next){
-    	res.sendHTML('<div>Hello <span>World</span></div>');
+        res.sendHTML('<div>Hello <span>World</span></div>');
     });
     
     app.get('/sendJS', function(req, res, next){
-    	res.sendJS("(function(){alert('Hola!');})()");
+        res.sendJS("(function(){alert('Hola!');})()");
     });
     
     app.get('/sendCSS', function(req, res, next){
-    	res.sendCSS("body{display:'none'}");
+        res.sendCSS("body{display:'none'}");
     });
     
-	app.listen(8080);
+    app.listen(8080);
     
 ````
 
-## Options
+#### Beautify Default Options
  See [js-beautify](https://www.npmjs.com/package/js-beautify)
 ````json
 {
@@ -79,5 +82,25 @@ var app = express();
     "eval_code": false,
     "unescape_strings": false,
     "wrap_line_length": 0
+}
+````
+
+## Minify
+
+````javascript
+var expressMinify = require('express-beautify').minify(/*Options*/);
+app.use(expressMinify);
+
+````
+#### Minify Default Options
+See [html-minifier](https://www.npmjs.com/package/html-minifier)
+
+````json
+{
+  "collapseWhitespace": true,
+  "minifyCSS": true,
+  "minifyJS": true,
+  "removeAttributeQuotes": true,
+  "removeComments": true,
 }
 ````
