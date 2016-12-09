@@ -1,6 +1,6 @@
 {
   "name": "express-beautify",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "HTML output beautify/minify filter for express",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,10 @@
     "render"
   ],
   "author": {
-    "name": "Lackneets"
+    "name": "Lackneets",
+    "contributors": [{
+      "name": "Bonesoul"
+    }]
   },
   "license": "MIT",
   "bugs": {
